@@ -1,7 +1,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
-import { getCredits, consumeCredits } from '@/lib/creditManager';
+// import { getCredits, consumeCredits } from '@/lib/creditManager';
 
 const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
 const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
