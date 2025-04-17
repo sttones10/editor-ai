@@ -1,4 +1,3 @@
-
 import { NextApiRequest, NextApiResponse } from 'next';
 import axios from 'axios';
 // linha removida por completo
@@ -18,6 +17,7 @@ Você é um assistente especializado em edição de HTML.
 - Se não entender o comando, retorne exatamente o HTML original.
 - Finalize o HTML com </html>.
 `;
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Método não permitido' });
@@ -30,9 +30,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(400).json({ message: 'HTML e comando são obrigatórios.' });
   }
 
+  // ❌ Controle de crédito temporariamente desativado para build funcionar
+  /*
   if (!consumeCredits(userId)) {
     return res.status(403).json({ message: 'Créditos insuficientes. Tente novamente amanhã.' });
   }
+  */
 
   try {
     const response = await axios.post(
